@@ -9,7 +9,7 @@ class App extends React.Component {
     }
     updateApp = () => {
         this.setState({  })
-        console.log("database prime is being loaded")
+        console.log("database prime number is being loaded")
         fetch("http://localhost:80/is-prime")
             .then(res => res.json())
             .then(json => {
