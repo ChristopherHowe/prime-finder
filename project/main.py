@@ -60,9 +60,3 @@ async def getInformation(info : Request):
             "status" : "SUCCESS",
             "posted number" : userInput,
         }
-    
-##@myApp.post("/postData")
-##async def post_input(new_input: int):
- ##   global userInput
-  ##  userInput = new_input
-    ##return {"posted number": new_input}

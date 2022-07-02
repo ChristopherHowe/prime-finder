@@ -31,12 +31,12 @@ class App extends React.Component {
             <div className="App">
                 <header className="App-header">
                     <h2>Welcome to the prime finder App.</h2>
-                    <div class="interface">
-                        <div class="element">
+                    <div className="interface">
+                        <div className="element">
                             <label>Enter a Number below</label>
                             <PrimeInput update={this.updateApp} />
                         </div>
-                        <div class="element">
+                        <div className="element">
                             <label id="dbNum">Current database number: </label>
                             <output>{this.state.databaseVal}</output>
                             <p>{this.state.prime ? "Yes its prime!" : "No its not prime"}</p>
