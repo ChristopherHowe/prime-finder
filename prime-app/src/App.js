@@ -40,9 +40,6 @@ class App extends React.Component {
                             <label id="dbNum">Current database number: </label>
                             <output>{this.state.databaseVal}</output>
                             <p>{this.state.prime ? "Yes its prime!" : "No its not prime"}</p>
-                            <style>
-
-                            </style>
                         </div>
                     </div>
                 </header>
