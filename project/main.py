@@ -1,4 +1,3 @@
-
 # ParaCloud internship project
 # Author: Chris Howe
 # Started 6/13/22
