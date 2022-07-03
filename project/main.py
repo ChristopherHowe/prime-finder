@@ -44,18 +44,27 @@ def is_prime():
 
 
 @myApp.post("/postData")
-async def getInformation(info : Request):
+async def getInformation(info: Request):
     req_info = await info.json()
     global userInput
     userInput = int(req_info["new_input"])
-    
-    if isinstance(userInput, int):
+    if type(userInput) != int:
         return{
             "status" : "FAILED",
             "msg" : "type is not int",
+            "attempted post": userInput
             }
     else:
         return {
             "status" : "SUCCESS",
             "posted number" : userInput,
         }
+
+@myApp.delete("/clearData")
+async def clearEntry():
+    global userInput
+    userInput = 0
+    return {
+        "msg": "data is cleared",
+        "input": userInput
+            }
