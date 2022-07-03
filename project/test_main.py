@@ -6,6 +6,7 @@ def test_default():
     assert myApp.default() == {"root"}
 
 def test_is_prime():
-    testResponse = {"new_input": 5}
-
+    testResponse = {"new_input": 5};
+    assert myApp.is_prime() == {"prime": bool,
+                               "intput": int}
 
