@@ -62,7 +62,7 @@ function PrimeInput({update}) {
         </form>
     );
 }
-
+//fix this send data takes in string number "9" needs to convert to int
 function sendData(data) {
     const options = {
         method: 'POST',

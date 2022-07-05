@@ -4,7 +4,7 @@ from main import is_prime, default, userInput
 
 client = TestClient(myApp)
 
-postData = {"new_input": 9}
+postData = {"new_input": "9"}
 
 
 ##Happy path testing
@@ -57,7 +57,9 @@ def test_clearEntryDelete():
     ##integration error tests
 
 faultyPost1 = {"new_input": "jared"}
-faultyPost2 = {"incorrect_key": 9}
+faultyPost2 = {"incorrect_key": "9"}
+faultyPost3 = {"new_input": "1.2"}
+
 
 def test_getInformationPostFaultyInput():
     response = client.post("/postData", json=faultyPost1)
@@ -72,6 +74,14 @@ def test_getInformationPostFaultyKey():
     assert response.status_code == 500
     assert response.json() == {
         "detail" : "correct key for JSON post is new_input"
+            }
+    client.delete("clearData")
+
+def test_getInformationPostFloat():
+    response = client.post("/postData", json=faultyPost3)
+    assert response.status_code == 415
+    assert response.json() == {
+        "detail" : "user input is not of type int"
             }
     client.delete("clearData")
 

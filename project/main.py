@@ -53,11 +53,11 @@ async def getInformation(info: Request):
     ##exceptions
     if not "new_input" in req_info:
         raise HTTPException(status_code=500, detail="correct key for JSON post is new_input")
-    if type(req_info["new_input"]) != int:
+    try:
+        global userInput
+        userInput = int(req_info["new_input"])
+    except:
         raise HTTPException(status_code=415, detail="user input is not of type int")
-    
-    global userInput
-    userInput = int(req_info["new_input"])
     
     return {
         "status" : "SUCCESS",
