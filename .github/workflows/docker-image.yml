@@ -23,4 +23,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag prime-finder
     - name: pushing the docker image 
-      run: docker push prime-finder
+      run: |
+        docker tag prime-finder howechristopher/prime-finder
+        docker push howechristopher/prime-finder
