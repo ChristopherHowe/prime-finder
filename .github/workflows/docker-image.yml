@@ -23,4 +23,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag prime-finder:$(date +%s)
     - name: pushing the docker image 
-      run: docker push prime-finder
+      run: docker push prime-finder:$(date +%s)
