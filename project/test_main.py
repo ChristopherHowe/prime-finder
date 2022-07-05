@@ -1,23 +1,24 @@
 from fastapi.testclient import TestClient
 from main import myApp
-from main import getInformation, is_prime, default
+from main import is_prime, default, userInput
 
 client = TestClient(myApp)
 
 postData = {"new_input": 9}
 
-##unit tests not ran through the client
+
+##Happy path testing
+    ##unit tests 
 def test_default():
     assert default() == {"root"}
 
 def test_is_prime():
-    print(is_prime())
     assert is_prime() == {
         'prime': True,
         'input': 0
     }
 
-##integration tests
+    ##integration tests
 def test_defaultGet():
     response = client.get('/')
     assert response.status_code == 200
@@ -51,4 +52,38 @@ def test_clearEntryDelete():
         "msg": "data is cleared",
         "input": 0
             }
-    
+  
+##error condition testing
+    ##integration error tests
+
+faultyPost1 = {"new_input": "jared"}
+faultyPost2 = {"incorrect_key": 9}
+
+def test_getInformationPostFaultyInput():
+    response = client.post("/postData", json=faultyPost1)
+    assert response.status_code == 415
+    assert response.json() == {
+        "detail" : "user input is not of type int"
+            }
+    client.delete("clearData")
+
+def test_getInformationPostFaultyKey():
+    response = client.post("/postData", json=faultyPost2)
+    assert response.status_code == 500
+    assert response.json() == {
+        "detail" : "correct key for JSON post is new_input"
+            }
+    client.delete("clearData")
+
+def test_is_primeFaultyInput():
+    client.post('/postData', json=postData)
+    response = client.get("/is-prime")
+    assert response.json() == {
+            "prime": False,
+            "input": 9
+                }
+    client.post('/postDataUntyped',json=faultyPost1)
+    response = client.get("/is-prime")
+    assert response.json() == {
+            "detail": "number is not of type int"
+                } 
