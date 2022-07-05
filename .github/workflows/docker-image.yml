@@ -21,6 +21,6 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag prime-finder:$(date +%s)
+      run: docker build . --file Dockerfile --tag prime-finder
     - name: pushing the docker image 
-      run: docker push prime-finder:$(date +%s)
+      run: docker push howechristopher/prime-finder
