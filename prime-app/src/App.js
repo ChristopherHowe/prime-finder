@@ -57,13 +57,14 @@ function PrimeInput({update}) {
 
     return (
         <form onSubmit={onSubmit}>
-            <input type="number" name="new_input" onChange={(event) => setInput(event.target.value)} ></input>
+            <input type="number" name="new_input" data-testid="input_textbox" onChange={(event) => setInput(event.target.value)} ></input>
             <button type="submit" onClick={() => { sendData({ new_input }); update(); }}> Is it prime? </button>
         </form>
     );
 }
-//fix this send data takes in string number "9" needs to convert to int
 function sendData(data) {
+    var num = parseInt(data["new_input"])
+    data["new_input"] = num
     const options = {
         method: 'POST',
         headers: {
