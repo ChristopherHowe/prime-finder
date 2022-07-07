@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react';
 import './App.css';
+import PrimeInput from './userInput.js';
 
 class App extends React.Component {
     state = {
@@ -47,34 +48,6 @@ class App extends React.Component {
         );
     }
 
-}
-
-function PrimeInput({update}) {
-    const[new_input,setInput] = useState(0)
-    const onSubmit = async (event) => {
-        event.preventDefault();
-    };
-
-    return (
-        <form onSubmit={onSubmit}>
-            <input type="number" name="new_input" data-testid="input_textbox" onChange={(event) => setInput(event.target.value)} ></input>
-            <button type="submit" onClick={() => { sendData({ new_input }); update(); }}> Is it prime? </button>
-        </form>
-    );
-}
-function sendData(data) {
-    var num = parseInt(data["new_input"])
-    data["new_input"] = num
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-    if (data["new_input"] !== '') {
-        fetch("http://127.0.0.1:80/postData", options);
-    }
 }
 
 export default App;
