@@ -8,8 +8,8 @@ function PrimeInput({ update }) {
 
     return (
         <form onSubmit={onSubmit}>
-            <input type="number" name="new_input" data-testid="input_textbox" onChange={(event) => setInput(event.target.value)} ></input>
-            <button type="submit" onClick={() => { sendData({ new_input }); update(); }}> Is it prime? </button>
+            <input title="new input textbox" type="number" name="new_input" onChange={(event) => setInput(event.target.value)} ></input>
+            <button type="submit" title="submit button" onClick={() => { sendData({ new_input }); update(); }}> Is it prime? </button>
         </form>
     );
 }
@@ -29,3 +29,4 @@ function sendData(data) {
 }
 
 export default PrimeInput;
+export { sendData };

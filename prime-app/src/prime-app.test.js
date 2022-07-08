@@ -3,8 +3,8 @@ import App from './App'
 
 test('render form', () => {
 	render(<App />);
-	const formElement = screen.getByTestId("input_textbox");
-	expect(formElement).toBeInTheDocument();
+	const labelElement = screen.getByTitle('enter label');
+	expect(labelElement).toBeInTheDocument();
 });
 
 //unit tests
@@ -18,4 +18,6 @@ test('render form', () => {
 //integration tests
 //test that primeInput sends data to API
 //test that sendData can send data to API
+//test that db number is updated when data is sent
+//test that prime state is updated when data is sent
 

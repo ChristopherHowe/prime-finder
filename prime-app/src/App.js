@@ -34,8 +34,8 @@ class App extends React.Component {
                     <h2>Welcome to the prime finder App.</h2>
                     <div className="interface">
                         <div className="element">
-                            <label>Enter a Number below</label>
-                            <PrimeInput update={this.updateApp} />
+                            <label title='enter label'>Enter a Number below</label>
+                            <PrimeInput title='main input' update={this.updateApp} />
                         </div>
                         <div className="element">
                             <label id="dbNum">Current database number: </label>
