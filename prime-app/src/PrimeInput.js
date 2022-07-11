@@ -24,7 +24,11 @@ function sendData(data) {
         body: JSON.stringify(data)
     };
     if (data["new_input"] !== '') {
-        fetch("http://127.0.0.1:80/postData", options);
+        fetch("http://127.0.0.1:80/postData", options)
+            .then(response => {
+                console.log("response status " + response.status)
+                return response.status
+            });
     }
 }
 

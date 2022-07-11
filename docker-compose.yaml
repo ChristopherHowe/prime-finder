@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+    api: 
+        build: ./project
+        container_name: prime-finder-container
+        ports: 
+            - '80:80'
+    
+    react-prime-app:
+        build: ./prime-app
+        container_name: prime-react-ui
+        ports:
+            - '3000:3000'
+        stdin_open: true
+        tty: true
+

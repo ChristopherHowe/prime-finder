@@ -3,10 +3,10 @@ FROM python:3.8
 
 WORKDIR /code
 
-COPY project/requirements.txt /code/requirements.txt
+COPY requirements.txt /code/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY ./project /code/project
+COPY . /code/project
 
 CMD ["uvicorn", "project.main:myApp", "--host", "0.0.0.0","--port" ,"80", "--reload"]

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import PrimeInput from './userInput.js';
+import PrimeInput from './PrimeInput';
 
 class App extends React.Component {
     state = {
@@ -11,7 +11,7 @@ class App extends React.Component {
     updateApp = () => {
         this.setState({  })
         console.log("database prime number is being loaded")
-        fetch("http://localhost:80/is-prime")
+        fetch("http://localhost:80/is-prime/")
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -38,9 +38,9 @@ class App extends React.Component {
                             <PrimeInput title='main input' update={this.updateApp} />
                         </div>
                         <div className="element">
-                            <label id="dbNum">Current database number: </label>
+                            <label title='database number label' id="dbNum">Current database number: </label>
                             <output>{this.state.databaseVal}</output>
-                            <p>{this.state.prime ? "Yes its prime!" : "No its not prime"}</p>
+                            <p>{this.state.prime ? "Yes it's prime!" : "No it's not prime"}</p>
                         </div>
                     </div>
                 </header>
