@@ -1,6 +1,6 @@
 # ParaCloud internship project
 # Author: Chris Howe
-# Started 6/13/22
+# Started 6/13/22 - 7/18/22
 import math
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
