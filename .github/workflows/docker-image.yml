@@ -2,7 +2,7 @@ name: Backend Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master","reactTestingDev" ]
   pull_request:
     branches: [ "master" ]
 
@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag prime-finder
+      run: docker build . --file project/Dockerfile --tag prime-finder
     - name: pushing the docker image 
       run: |
         docker tag prime-finder howechristopher/prime-finder
