@@ -24,8 +24,14 @@ jobs:
       run: |
         cd project
         docker build . --file Dockerfile --tag prime-finder
+        cd ..
+        cd prime-app
+        docker build . --file Dockerfile --tag prime-react-ui
+
     - name: pushing the docker image 
       run: |
         docker tag prime-finder howechristopher/prime-finder
         docker push howechristopher/prime-finder
+        docker tag prime-react-ui howechristopher/prime-react-ui
+        docker push howechristopher/prime-react-ui
 
