@@ -1,6 +1,8 @@
 import App from './App'
 import { render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
 
+//This test suite currently only contains render tests but would include integration tests in the future
 
 describe('Prime Input does Render', () => {
     it('submit button', () => {

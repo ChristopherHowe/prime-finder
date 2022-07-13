@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import App from './App'
+import '@testing-library/jest-dom'
 
+//This test suite currently only contains render tests but would include integration tests in the future
 
 describe('render tests', () => {
 	beforeEach(() => {

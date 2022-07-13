@@ -5,19 +5,15 @@ import PrimeInput from './PrimeInput';
 class App extends React.Component {
     state = {
         prime: true,
-        didInput: 0,
         databaseVal: 0
     }
     updateApp = () => {
-        this.setState({  })
-        console.log("database prime number is being loaded")
         fetch("http://localhost:80/is-prime/")
             .then(res => res.json())
             .then(json => {
                 this.setState({
                     prime: json["prime"],
                     databaseVal: json["input"],
-                    didInput: this.state.didInput + 1
                 })
             });
     }
@@ -47,7 +43,6 @@ class App extends React.Component {
             </div>
         );
     }
-
 }
 
 export default App;

@@ -16,7 +16,7 @@ origins = [
 
 myApp.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -57,13 +57,14 @@ async def getInformation(info: Request):
         global userInput
         userInput = int(req_info["new_input"])
     except:
-        raise HTTPException(status_code=415, detail="user input is not of type int")
+        raise HTTPException(status_code=500, detail="user input is not of type int")
     
     return {
         "status" : "SUCCESS",
         "posted number" : userInput,
     }
 
+## useful for testing that errors are thrown
 @myApp.post('/postDataUntyped')
 async def postDataUntyped(info: Request):
     newData = await info.json()

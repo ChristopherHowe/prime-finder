@@ -35,8 +35,8 @@ jobs:
 
     - name: pushing the docker images to docker hub
       run: |
+        ##creates two seperate repositories in dockerhub
         docker tag prime-finder howechristopher/prime-finder
         docker push howechristopher/prime-finder
         docker tag prime-react-ui howechristopher/prime-react-ui
         docker push howechristopher/prime-react-ui
-
