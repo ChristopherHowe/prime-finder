@@ -1,8 +1,12 @@
-name: Backend Docker Image CI
+# Responsible for pushing the complete project to two seperate images in docker hub
+# Docker images can be accessed via the make file
+# Updates occur whenever the project is pushed to the master branch on github
+
+name: Docker images builder
 
 on:
   push:
-    branches: [ "master", "reactTestingDev" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -15,6 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Docker Login
+      # uses github secrets to login to docker 
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
@@ -28,7 +33,7 @@ jobs:
         cd prime-app
         docker build . --file Dockerfile --tag prime-react-ui
 
-    - name: pushing the docker image 
+    - name: pushing the docker images to docker hub
       run: |
         docker tag prime-finder howechristopher/prime-finder
         docker push howechristopher/prime-finder
