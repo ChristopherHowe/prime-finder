@@ -1,7 +1,6 @@
 
 all:
 	@echo pulling docker images from docker hub
-	docker login -u howechristopher -p Jackamo5150$
 	docker pull howechristopher/prime-finder 
 	docker pull howechristopher/prime-react-ui
 	@echo running docker image
