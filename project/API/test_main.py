@@ -18,7 +18,7 @@ def test_is_prime():
         'input': 0
     }
 
-    ##integration tests
+    ##integration tests for api
 def test_defaultGet():
     response = client.get('/')
     assert response.status_code == 200

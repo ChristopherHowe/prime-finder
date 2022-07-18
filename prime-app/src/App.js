@@ -22,7 +22,7 @@ class App extends React.Component {
         this.updateApp();
     }
 
-    //defines how app is organized
+    //defines how application is organized
     render() {
         return (
             <div className="App">
