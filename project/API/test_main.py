@@ -63,7 +63,7 @@ faultyPost3 = {"new_input": "1.2"}
 
 def test_getInformationPostFaultyInput():
     response = client.post("/postData", json=faultyPost1)
-    assert response.status_code == 415
+    assert response.status_code == 500
     assert response.json() == {
         "detail" : "user input is not of type int"
             }
@@ -79,7 +79,7 @@ def test_getInformationPostFaultyKey():
 
 def test_getInformationPostFloat():
     response = client.post("/postData", json=faultyPost3)
-    assert response.status_code == 415
+    assert response.status_code == 500
     assert response.json() == {
         "detail" : "user input is not of type int"
             }
